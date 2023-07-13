@@ -21,12 +21,12 @@ When the training was complete, the model was given a seperate set of data it ha
 ## Running this project
 
 ### Setting up
-1. Download [file_name] from github. There should be 6 folders inside - Test_Hat, Train_Hat, Val_Hat, Test_NoHat, Train_NoHat, Val_NoHat.
+1. Download *Hard_Hat_Data* from github. There should be 6 folders inside - *Test_Hat*, *Train_Hat*, *Val_Hat*, *Test_NoHat*, *Train_NoHat*, *Val_NoHat*.
 2. Change directories into **jetson-inference/python/training/classification/data**.
 3. Create a directory named hard_hat using `mkdir hard_hat`.
 4. Move into hard_hat using `cd hard_hat`. Create directories test, train, and val using `mkdir test`, `mkdir train`, and `mkdir val`.
 5. For each of test, train, and val, create two new directories inside called hard_hat and no_hard_hat.
-6. Add relevant pictures from the file downloaded into the new created folders (you can use filezilla to do this step). For example, Test_NoHat should go into **jetson-inference/python/training/classification/data/hard_hat/test/no_hard_hat**. Be careful to not add the actual folders themselves, but just the image files inside.
+6. Add relevant pictures from the file downloaded into the new created folders (you can use filezilla to do this step). For example, files from *Test_NoHat* should go into **jetson-inference/python/training/classification/data/hard_hat/test/no_hard_hat**. Be careful to not add the actual folders themselves, but just the image files inside.
 7. Back out to **jetson-inference/python/training/classification/data/hard_hat/**, and create a new labels.txt using `cat > labels.txt`. 
 8. In labels.txt, type the following 3 lines (line 3 should be left blank. Press enter to go to the next line. When you are done, exit using control-d.
     - 1 hard_hat
