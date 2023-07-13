@@ -2,9 +2,7 @@
 
 ## Background and Introduction
 
-Head injuries are a common risk on construction sites. The construction industry has the highest rate of both fatal and nonfatal TBI (traumatic brain injury) across all industries in the U.S. Between 2003 and 2010, 2210 construction workers died because of a TBI, which was 25% of all construction fatalities [^1]. These injuries can result in serious long-term effects including memory loss, fractured bones, spine damage, or even death for the workers involved [^2]. In addition, head injuries also cost a lot of money for the companies involved - one incident of severe TBI is estimated to cost a company between $600,000 and $1,875,000 over the worker's lifetime [^3]. The main factor behind head injuries was lack of adequate head protection: a survey by the Bureau of Labor Statistics found that 84% of workers who suffered head injuries were not wearing proper head protection at the time [^4].
-
-This project aims to decrease the number of head injuries on construction sites by detecting whether or not the worker is wearing a helmet based on an input image. Although the program is not perfect, it maintained an accuracy rate of between 88%-92% after 800 epochs of training, and it only takes a couple seconds to run. 
+Head injuries are a common risk on construction sites. The construction industry has the highest rate of both fatal and nonfatal TBI (traumatic brain injury) across all industries in the U.S. Between 2003 and 2010, 2210 construction workers died because of a TBI, which was 25% of all construction fatalities. [^1] These injuries can result in serious long-term effects including memory loss, fractured bones, spine damage, or even death for the workers involved. [^2] In addition, head injuries also cost a lot of money for the companies involved - one incident of severe TBI is estimated to cost a company between $600,000 and $1,875,000 over the worker's lifetime. [^3] The main factor behind head injuries was lack of adequate head protection: a survey by the Bureau of Labor Statistics found that 84% of workers who suffered head injuries were not wearing proper head protection at the time. [^4] This project aims to decrease the number of head injuries on construction sites by detecting whether or not the worker is wearing a helmet based on an input image. It only takes a couple seconds to classify an image, and could be used on the entryway of construction sites as a quick and easy way to verify workers wearing hard hats. 
 
 ![add image descrition here](direct image link here)
 
@@ -64,6 +62,8 @@ When the training was complete, the model was given a seperate set of data it ha
            $DATASET/test/no_hard_hat $DATASET/test_output_no_hard_hat`
 
 Now, in **jetson-inference/python/training/classification/data/hard_hat**, you should see two new directories named test_output_hard_hat and test_ouput_no_hard_hat. Inside, you should see all your tested images and their results.
+
+In addition, although the model maintained an overall accuracy rate between 88%-92% after 800 epochs of training, it was able to identify 100% of the val images for no_hard_hat and 80% of the val images for hard_hat, so there were 0% false negatives and 20% false positives.
 
 [View a video explanation here](video link)
 
