@@ -66,7 +66,9 @@ Now, in **jetson-inference/python/training/classification/data/hard_hat**, you s
 
 When you download the Hard_Hat_Safety-main folder from github, click inside Hard_Hat_Data to see a .py file called trainedmodel.py. This is a model that has been trained for about 820 epochs. With the val images, it was able to detect about 88-92% of the val images correctly. It also had 20% of false positives (correctly identified 80% of validation images that had workers with a construction hat) and 0% false negatives (correctly identified 100% of validation images that had workers without a construction site). This was a positive result because if workers are wearing hats and the model detects otherwise, workers can walk through, and there are less chances of a worker without proper head protection passing through as the model can detect their wearing a hard hat.
 
-[View a video explanation here](video link)
+## Video
+
+[If all else fails, watch this video with all the steps to this project.](https://www.youtube.com/watch?v=GiixGKxbm98)
 
 [^1]: https://blogs.cdc.gov/niosh-science-blog/2022/11/10/construction-helmets/
 [^2]: https://www.brainandspinalcord.org/cost-traumatic-brain-injury/
