@@ -68,7 +68,7 @@ When you download the Hard_Hat_Safety-main folder from github, click inside Hard
 
 ## Video
 
-[If all else fails, watch this video with all the steps to this project.](https://www.youtube.com/watch?v=GiixGKxbm98)
+[If all else fails, watch this video with all the steps to this project.](https://youtu.be/f4qoEROTeEs)
 
 [^1]: https://blogs.cdc.gov/niosh-science-blog/2022/11/10/construction-helmets/
 [^2]: https://www.brainandspinalcord.org/cost-traumatic-brain-injury/
