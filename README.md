@@ -2,7 +2,7 @@
 
 ## Background and Introduction
 
-Head injuries are a common risk on construction sites. The construction industry has the highest rate of both fatal and nonfatal TBI (traumatic brain injury) across all industries in the U.S. Between 2003 and 2010, 2210 construction workers died because of a TBI, which was 25% of all construction fatalities. [^1] These injuries can result in serious long-term effects including memory loss, fractured bones, spine damage, or even death for the workers involved. [^2] In addition, head injuries also cost a lot of money for the companies involved - one incident of severe TBI is estimated to cost a company between $600,000 and $1,875,000 over the worker's lifetime. [^3] The main factor behind head injuries was lack of adequate head protection: a survey by the Bureau of Labor Statistics found that 84% of workers who suffered head injuries were not wearing proper head protection at the time. [^4] This project aims to decrease the number of head injuries on construction sites by detecting whether or not the worker is wearing a helmet based on an input image. It only takes a couple seconds to classify an image, and could be used on the entryway of construction sites as a quick and easy way to verify workers wearing hard hats. 
+Head injuries are a common risk on construction sites. The construction industry has the highest rate of both fatal and nonfatal TBI (traumatic brain injury) across all industries in the U.S. Between 2003 and 2010, 2210 construction workers died because of a TBI, which accounted for 25% of all construction fatalities. [^1] These injuries can result in serious long-term effects including memory loss, fractured bones, spine damage, or even death for the workers involved. [^2] In addition, head injuries also cost a lot of money for the companies involved - one incident of severe TBI is estimated to cost a company between $600,000 and $1,875,000 over the worker's lifetime. [^3] The main factor behind head injuries was lack of adequate head protection: a survey by the Bureau of Labor Statistics found that 84% of workers who suffered head injuries were not wearing proper head protection at the time. [^4] This project aims to decrease the number of head injuries on construction sites by detecting whether or not the worker is wearing a helmet based on an input image. It only takes a couple seconds to classify an image, and could be used on the entryway at construction sites as a quick and easy way to verify workers wearing hard hats. 
 
 ![add image descrition here](direct image link here)
 
@@ -48,11 +48,10 @@ When the training was complete, the model was given a seperate set of data it ha
 19. Use `ls models/hard_hat/` to check that your trained model is on the nano.  A file named resnet18.onnx should be there.
 20. Set the NET and DATASET variables using `NET=models/hard_hat` and `DATASET=data/hard_hat`
 21. In order to see how your trained model works on an image already uploaded, use
-`imagenet.py --models=$NET/resnet.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt $DATASET/test/hard_hat/05.jpg display.jpg`.
-    - Here, hard_hat is the current category (out of hard_hat or no_hard_hat) that the model will pull an image from to test on. You can change this to 
-        no_hard_hat if you want to test an image without a hard hat.
+`imagenet.py --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt $DATASET/test/hard_hat/05.jpg hard_hat_test_01.jpg`. You should get a test image named hard_hat_01.jpg under **jetson-inference/python/training/classification**.
+    - Here, hard_hat is the current category (out of hard_hat or no_hard_hat) that the model will pull an image from to test on. You can change this to no_hard_hat if you want to test an image without a hard hat.
     - 05.jpg is the name of the image tested. You can change this to any image name you want to be tested inside hard_hat or no_hard_hat. There is 01.jpg to 20.jpg available with the downloaded package, but you can also add your own images into the folder and input its name to test it.
-    - display.jpg is the name that the tested image will be saved as. Change this to what you want the output name to be.
+    - hard_hat_01.jpg is the name that the tested image will be saved as. Change this to what you want the output name to be.
 22. If you want to run all of the test images at once, follow these steps:
 
     - Create two new directories using `mkdir $DATASET/test_output_hard_hat $DATASET/test_output_no_hard_hat`. Run these commands:
@@ -63,7 +62,9 @@ When the training was complete, the model was given a seperate set of data it ha
 
 Now, in **jetson-inference/python/training/classification/data/hard_hat**, you should see two new directories named test_output_hard_hat and test_ouput_no_hard_hat. Inside, you should see all your tested images and their results.
 
-In addition, although the model maintained an overall accuracy rate between 88%-92% after 800 epochs of training, it was able to identify 100% of the val images for no_hard_hat and 80% of the val images for hard_hat, so there were 0% false negatives and 20% false positives.
+## Extra
+
+When you download the Hard_Hat_Safety-main folder from github, click inside Hard_Hat_Data to see a .py file called trainedmodel.py. This is a model that has been trained for about 820 epochs. With the val images, it was able to detect about 88-92% of the val images correctly. It also had 20% of false positives (correctly identified 80% of validation images that had workers with a construction hat) and 0% false negatives (correctly identified 100% of validation images that had workers without a construction site). This was a positive result because if workers are wearing hats and the model detects otherwise, workers can walk through, and there are less chances of a worker without proper head protection passing through as the model can detect their wearing a hard hat.
 
 [View a video explanation here](video link)
 
